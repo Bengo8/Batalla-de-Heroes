@@ -1,4 +1,4 @@
 <button *ngIf="!newGameStarted" class="startNewGame" (click)="startNewGame()">Iniciar nueva partida</button>
 <button *ngIf="newGameStarted && !figthStarted" class="startFigth" (click)="startNewFigth()">Comenzar Combate</button>
-<app-my-hero *ngIf="newGameStarted && !figthStarted"></app-my-hero>
+<app-my-hero *ngIf="newGameStarted && !figthStarted" (startNewGame)="resetGame()"></app-my-hero>
 <app-battle *ngIf="newGameStarted && figthStarted"></app-battle>

@@ -1,8 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { BattleArenaComponent } from 'src/app/core/battle-arena/battle-arena.component';
-import { BattleComponent } from 'src/app/core/battle/battle.component';
-import { MyHeroComponent } from 'src/app/core/my-hero/my-hero.component';
 import { AppComponent } from '../app/app.component';
 
 describe('AppComponent', () => {
@@ -11,8 +8,7 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [RouterTestingModule],
-        declarations: [AppComponent, BattleArenaComponent, BattleComponent, MyHeroComponent]
+        declarations: [AppComponent, BattleArenaComponent]
       }).compileComponents();
       
       fixture = TestBed.createComponent(AppComponent);

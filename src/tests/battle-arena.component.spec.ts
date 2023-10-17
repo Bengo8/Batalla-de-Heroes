@@ -1,3 +1,4 @@
+import { HttpClientModule } from "@angular/common/http";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { BattleComponent } from "src/app/core/battle/battle.component";
 import { MyHeroComponent } from "src/app/core/my-hero/my-hero.component";
@@ -9,6 +10,7 @@ describe('BattleArenaComponent', () => {
 
     beforeEach(()=> {
         TestBed.configureTestingModule({
+            imports: [HttpClientModule],
             declarations: [BattleArenaComponent, BattleComponent, MyHeroComponent]
         }).compileComponents();
 
@@ -68,4 +70,14 @@ describe('BattleArenaComponent', () => {
         const battleComponent = fixture.nativeElement.querySelector('app-battle');
         expect(battleComponent).toBeTruthy();
     });
+
+    it('Should be new game and figth not started if game is reset (myhero output)', () => {        
+        fixture.detectChanges();
+        component.resetGame();
+        const newGameButton = fixture.nativeElement.getElementsByClassName('startNewGame')[0];
+        
+        expect(newGameButton).toBeTruthy();
+        expect(component.newGameStarted).toBeFalsy();
+        expect(component.figthStarted).toBeFalsy();
+    })
 });

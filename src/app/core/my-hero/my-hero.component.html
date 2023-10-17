@@ -1,1 +1,29 @@
-<p>my-hero works!</p>
+<div class="heroDataContainer" *ngIf="!noData">
+    <img class="heroImg" [src]="heroData.img"/>
+    <div>
+        <span class="heroName">Nombre: {{ heroData.name }}</span>
+        <span class="heroIntelligence">Inteligencia: {{ heroData.intelligence }}</span>
+        <span class="heroStrength">Fuerza: {{ heroData.strength }}</span>
+        <span class="heroSpeed">Agilidad: {{ heroData.speed }} </span>
+        <span class="heroDurability">Durabilidad: {{ heroData.durability }}</span>
+        <span class="heroPower">Poder: {{ heroData.power }}</span>
+        <span class="heroCombat">Combate: {{ heroData.combat }}</span>
+    </div>
+</div>
+
+<button class="battleHistoryButton" (click)="showBattleLogs()">Historial de Batallas</button>
+<button class="resetHeroButton" (click)="resetGame()">Reiniciar juego</button>
+
+<div *ngIf="showBattleHistory && !noData" class="historyBattlesDiv">
+    <div *ngFor="let battle of heroData.battleHistory">
+        <span class="battleTime">Hora: {{ battle.time }}</span>
+        <span class="battleStatus">Inteligencia: {{ battle.status }}</span>
+        <span class="battleEnemy">Enemigo: {{ battle.enemy }}</span>
+        <span class="battleDefended">Defendido: {{ battle.defended }} </span>
+        <span class="battleDamage">Daño: {{ battle.damage }}</span>
+    </div>
+</div>
+
+<div *ngIf="noData" class="noDataDiv">
+    <span class="noDataSpan">No hay datos</span>
+</div>
